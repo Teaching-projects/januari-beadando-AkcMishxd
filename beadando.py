@@ -24,20 +24,20 @@ if kerdes=="kulcsrakész":
             osszeg=szamitas1+szamitas3
         else:
             erkely=input("Szeretne e erkélyt? ")
-        if erkely=="igen":
-            osszeg=szamitas1+szamitas4
-        else:
-            osszeg=szamitas1
+            if erkely=="igen":
+                osszeg=szamitas1+szamitas4
+            else:
+                osszeg=szamitas1
     else:
-        terasz=input("Szeretne e teraszt?")
+        terasz=input("Szeretne e teraszt? ")
         if terasz=="igen":
             osszeg=szamitas2+szamitas3
         else:
             erkely=input("Szeretne e erkélyt? ")
-        if erkely=="igen":
-            osszeg=szamitas2+szamitas4  
-        else:
-            osszeg=szamitas2   
+            if erkely=="igen":
+                osszeg=szamitas2+szamitas4  
+            else:
+                osszeg=szamitas2   
 else:
     felepites=input("Lakótér - földszint, emeletet szeretne? ")
     if felepites=="földszint":
@@ -46,20 +46,20 @@ else:
             osszeg=szamitas1+(alapt*35000)
         else:
             erkely=input("Szeretne e erkélyt? ")
-        if erkely=="igen":
-            osszeg=szamitas1+(alapt*110000)
-        else:
-            osszeg=szamitas1
+            if erkely=="igen":
+                osszeg=szamitas1+(alapt*110000)
+            else:
+                osszeg=szamitas1
     else:
-        terasz=input("Szeretne e teraszt?")
+        terasz=input("Szeretne e teraszt? ")
         if terasz=="igen":
             osszeg=szamitas2+(alapt*35000)
         else:
-              erkely=input("Szeretne e erkélyt? ")
-        if erkely=="igen":
-            osszeg=szamitas2+(alapt*110000)
-        else:
-            osszeg=szamitas2
+            erkely=input("Szeretne e erkélyt? ")
+            if erkely=="igen":
+                osszeg=szamitas2+(alapt*110000)
+            else:
+                osszeg=szamitas2
 if alapt < 200:
     print((osszeg/100*10)+osszeg)
 else:

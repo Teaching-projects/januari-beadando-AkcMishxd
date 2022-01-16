@@ -3,60 +3,68 @@
 alapt=int(input("Kérjük adja meg az alapterület méretét(m2): "))
 
 kerdes=input("Kulcsrakész házat vagy csak a szerkezetét szeretné? ")
-#árak
-munkadij1=190000
-munkadij2=75000
-munkadij3=25000
+#árak Ft/m2
+munkadijhaz=190000 
+munkadijterasz=75000
+munkadijerkely=25000
 
-teraszar=alapt*35000
-erkelyar=alapt*110000
+teraszar=35000
+erkelyar=110000
 foldszintar=215000
 emeletar=185000
 #számitások
-szamitas1=alapt*(foldszintar+munkadij1)
-szamitas2=alapt*(emeletar+munkadij1)
-szamitas3=alapt*(teraszar+munkadij3)
-szamitas4=alapt*(erkelyar+munkadij2)
+szamitasfoldszint=alapt*(foldszintar+munkadijhaz)
+szamitasemelet=alapt*(emeletar+munkadijhaz)
+szamitasterasz=teraszar+munkadijerkely
+szamitaserkely=erkelyar+munkadijterasz
 #kulcsrakész
 if kerdes=="kulcsrakész":
     felepites=input("Lakótér - földszint, emeletet szeretne? ")
     if felepites=="földszint":
         egyeb=input("teraszt vagy erkélyt szeretne? ")
-        if egyeb=="taraszt":
-            osszeg=szamitas1+szamitas3
+        if egyeb=="teraszt":
+            teraszterulet=int(input("Kérjük adja meg az teraszterületének méretét(m2): "))
+            osszeg=szamitasfoldszint+(teraszterulet*szamitasterasz)
         elif egyeb=="erkélyt":
-            osszeg=szamitas1+szamitas4
+            erkelyterulet=int(input("Kérjük adja meg az erkélyterületének méretét(m2): "))
+            osszeg=szamitasfoldszint+(erkelyterulet*szamitasterasz)
         else:
-            osszeg=szamitas1
+            osszeg=szamitasfoldszint
     else:
         egyeb=input("teraszt vagy erkélyt szeretne? ")
-        if egyeb=="igen":
-            osszeg=szamitas2+szamitas3
+        if egyeb=="teraszt":
+           teraszterulet=int(input("Kérjük adja meg az teraszterületének méretét(m2): "))
+           osszeg=szamitasemelet+(teraszterulet*szamitasterasz)
         elif egyeb=="erkélyt":
-            osszeg=szamitas2+szamitas4  
+            erkelyterulet=int(input("Kérjük adja meg az erkélyületének méretét(m2): "))
+            osszeg=szamitasemelet+(erkelyterulet*szamitasterasz)  
         else:
-            osszeg=szamitas2 
+            osszeg=szamitasemelet 
 #szerkezetes  
 else:
     felepites=input("Lakótér - földszint, emeletet szeretne? ")
     if felepites=="földszint":
         egyeb=input("teraszt vagy erkélyt szeretne? ")
-        if egyeb=="igen":
-            osszeg=szamitas1+(alapt*35000)
+        if egyeb=="teraszt":
+            teraszterulet=int(input("Kérjük adja meg az teraszterületének méretét(m2): "))
+            osszeg=szamitasfoldszint+(teraszterulet*teraszar)
         elif egyeb=="erkélyt":
-            osszeg=szamitas1+(alapt*110000)
+            erkelyterulet=int(input("Kérjük adja meg az erkélyületének méretét(m2): "))
+            osszeg=szamitasfoldszint+(erkelyterulet*erkelyar)
         else:
-            osszeg=szamitas1
+            osszeg=szamitasfoldszint
     else:
         egyeb=input("teraszt vagy erkélyt szeretne? ")
-        if egyeb=="igen":
-            osszeg=szamitas2+(alapt*35000)
+        if egyeb=="teraszt":
+            teraszterulet=int(input("Kérjük adja meg az teraszterületének méretét(m2): "))
+            osszeg=szamitasemelet+(teraszterulet*teraszar)
         elif egyeb=="erkélyt":
-            osszeg=szamitas2+(alapt*110000)
+            erkelyterulet=int(input("Kérjük adja meg az erkélyületének méretét(m2): "))
+            osszeg=szamitasemelet+(erkelyterulet*erkelyar)
         else:
-            osszeg=szamitas2
+            osszeg=szamitasemelet
 #+10% számoló
 if alapt < 200:
-    print((osszeg/100*10)+(osszeg/100*5)+osszeg)
+    print((osszeg/100*10)+(osszeg/100*5)+osszeg,"Ft")
 else:
-    print((osszeg/100*5)+osszeg)
+    print((osszeg/100*5)+osszeg,"Ft")
